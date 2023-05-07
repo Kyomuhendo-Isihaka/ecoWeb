@@ -1,0 +1,27 @@
+{% extends 'admin.html' %}
+{% block content %}
+{% load static %}
+
+<div class="conatiner">
+    <h3 class="text-center">Users</h3>
+    <table class="table table-boardered m-3">
+        <tr>
+            <th>User Name</th>
+            <th>Phone</th>
+            <th>Status</th>
+        </tr>
+
+        {% for res in results %}
+        <tr>
+            <td>{{res.1}}</td>
+            <td>{{res.3}}</td>
+            <td>Online</td>
+        </tr>
+        {% endfor%}
+
+    </table>
+
+
+</div>
+
+{% endblock%}

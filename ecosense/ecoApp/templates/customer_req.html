@@ -1,0 +1,82 @@
+{% extends 'admin.html' %}
+{% block content %}
+{% load static %}
+<!-- Start Form detail to add a room -->
+<!-- <div class="rooms mx-auto w-50 w3-section w3-padding-16">
+				<div class="room-card 	w3-card-2 w3-white w3-width w3-padding w3-round-large">
+					<h3 class="w3-container w3-center w3-padding" style="font-family: cursive;">Update Website</h3>
+					<form action="." method="POST" enctype="multipart/form-data">
+						<p>
+							Section
+						</p>
+						<select name="section" class="form-control">
+							<option value="equipment">Facilities/ Equipments</option>
+							<option value="equipment">Services offered</option>
+							<option value="equipment">Slider Images</option>
+						</select>
+						<br>
+						<p>
+							Description
+						</p>
+						<textarea name="description" class="form-control" id="" cols="30" rows="10"></textarea>
+						<br>
+						<p>
+							Upload Image
+						</p>
+						<input type="file" name="room_img" required><br>
+
+						<div class="w3-container w3-section">
+							<input type="reset" class="w3-btn w3-yellow w3-round-large">
+							<input type="submit" name="submit" value="submit"
+								class="w3-btn w3-blue w3-round-large w3-right">
+						</div>
+					</form>
+				</div>
+			</div> -->
+<!-- End Form detail to add a room -->
+
+<div class="conatiner">
+	<h3 class="text-center">Customer Requests</h3>
+
+	<table class="table table-boardered m-3">
+		<!-- <tr> -->
+		<th>ID</th>
+		<th>Customer Name</th>
+		<th>Phone</th>
+		<th>Location</th>
+		<th>Trush Type</th>
+		<th>Weight</th>
+		<th>Date</th>
+		<th>Action</th>
+
+		<!-- </tr> -->
+		{% for i in results %}
+
+		<tr>
+
+			<td>{{i.0}}</td>
+			<td>{{i.1}}</td>
+			<td>{{i.2}}</td>
+			<td>{{i.3}}</td>
+			<td>{{i.4}}</td>
+			<td>{{i.5}}</td>
+			<td>{{i.6}}</td>
+			<td>
+				
+				<form method="POST">
+					{% csrf_token %}
+					<button type="submit" name="done" class="btn btn-primary w-25" value="{{i.id}}">Done</button>
+					<input class="btn btn-warning w-25" value="Caucel">
+				</form>
+			</td>
+
+		</tr>
+
+
+		{% endfor %}
+
+	</table>
+
+</div>
+
+{% endblock%}

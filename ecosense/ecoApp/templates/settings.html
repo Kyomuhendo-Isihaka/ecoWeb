@@ -1,0 +1,62 @@
+{% extends 'admin.html' %}
+{% block content %}
+{% load static %}
+
+<div class="conatiner">
+    <h3 class="text-center">Settings</h3>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="w3-center">Edit Profile</h3>
+                <form method="POST">
+                    <h4>Change Username</h4>
+                    <input class="w3-input w3-border w3-hover-border-black w3-margin-bottom" name="uname" type="text"
+                        placeholder="Change Username">
+                    <div class="w3-center">
+                        <button class="w3-btn w3-section w3-blue w3-btn-primary">Change</button>
+                    </div>
+                </form>
+
+                <form method="POST">
+                    <h4>Change Password</h4>
+                    <input class="w3-input w3-border w3-hover-border-black w3-margin-bottom" name="o_pass"
+                        type="password" placeholder="Enter Old Password">
+                    <input class="w3-input w3-border w3-hover-border-black w3-margin-bottom" name="n_pass"
+                        type="password" placeholder="Enter New Password">
+                    <input class="w3-input w3-border w3-hover-border-black w3-margin-bottom" name="cfm_pass"
+                        type="password" placeholder="Confirm New password">
+                    <div class="w3-center">
+                        <button class="w3-btn w3-section w3-blue w3-btn-primary">Change Password</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-6 w3-card-2">
+                <h3 class="w3-center">Add New User</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <label><b>Name</b></label>
+                    <input class="w3-input w3-border w3-hover-border-black w3-margin-bottom" name="uname" type="text"
+                        placeholder="Enter New Username" required>
+                    <label><b>Phone</b></label>
+                    <input class="w3-input w3-border w3-hover-border-black w3-margin-bottom" name="phone" type="text"
+                        placeholder="Enter New User Phone Number" required>
+                    <label><b>Password</b></label>
+                    <input class="w3-input w3-border w3-hover-border-black w3-margin-bottom" name="pass" type="text"
+                        placeholder="Enter New User password" required>
+                    <label><b>Admin Password</b></label>
+                    <input class="w3-input w3-border w3-hover-border-black w3-margin-bottom" name="a_pass"
+                        type="password" placeholder="Enter Admin Password">
+                    <div class="w3-center">
+                        <button class="w3-btn w3-section w3-blue w3-btn-primary">Add User</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+{% endblock%}
